@@ -29,6 +29,8 @@ For a deeper understanding of the project's purpose, user personas, and design t
 
 🔗 **(https://docs.google.com/presentation/d/1_oCfOjfzzzMQ6gBgT2EU1ekz-Gq90hx4_jEkhfaHb5Y/edit?usp=sharing)**
 
+Please note that this is a mock presentation highlighting the concepts behind the project. This project was created several months ago when I began my journey into full-stack development. It originated as part of a group project based on my original idea. I served as the project manager, and now, months later, I still plan to continue developing my website beyond its initial stage.
+
 ---
 
 ## ⚙️ Features
