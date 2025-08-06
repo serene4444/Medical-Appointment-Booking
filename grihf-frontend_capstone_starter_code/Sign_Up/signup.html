@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+     <div class="signup-frame">
+        <div class="form-header">
+            <h1 class="form-title">Create Account</h1>
+            <p class="form-subtitle">Join us and take control of your health—one entry at a time.</p>
+        </div>
+
+        <form class="signup-form" id="signupForm">
+            <!-- Role Selection -->
+            <div class="form-group">
+                <label for="role" class="form-label">
+                    Role <span class="required">*</span>
+                </label>
+                <div class="dropdown-container">
+                    <select id="role" name="role" class="form-input dropdown-select" required>
+                        <option value="">Select your role</option>
+                        <option value="patient">Patient</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="error-message" id="roleError">
+                    <svg class="error-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    Please select a role
+                </div>
+            </div>
+
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="fullName" class="form-label">
+                    Full Name <span class="required">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="fullName" 
+                    name="fullName" 
+                    class="form-input"
+                    placeholder="Enter your full name"
+                    required
+                >
+                <div class="error-message" id="nameError">
+                    <svg class="error-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    Please enter your full name
+                </div>
+                <div class="success-message" id="nameSuccess">
+                    <svg class="success-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Looks good!
+                </div>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email" class="form-label">
+                    Email <span class="required">*</span>
+                </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-input"
+                    placeholder="Enter your email address"
+                    required
+                >
+                <div class="error-message" id="emailError">
+                    <svg class="error-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    Please enter a valid email address
+                </div>
+                <div class="success-message" id="emailSuccess">
+                    <svg class="success-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Valid email format
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password" class="form-label">
+                    Password <span class="required">*</span>
+                </label>
+                <div class="password-container">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-input"
+                        placeholder="Create a strong password"
+                        required
+                    >
+                    <button type="button" class="password-toggle" id="passwordToggle">
+                        👁️
+                    </button>
+                </div>
+                <div class="password-strength" id="passwordStrength">
+                    <div class="strength-label">Password strength</div>
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strengthFill"></div>
+                    </div>
+                </div>
+                <div class="error-message" id="passwordError">
+                    <svg class="error-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    Password must be at least 8 characters long
+                </div>
+                <div class="success-message" id="passwordSuccess">
+                    <svg class="success-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Strong password!
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button" id="submitButton">
+                <span id="buttonText">Create Account</span>
+                <span id="buttonLoading" class="loading" style="display: none;"></span>
+            </button>
+        </form>
+
+        <!-- Login Link -->
+        <div class="login-link">
+            Already have an account? <a href="../login/login.html">Sign in here</a>
+        </div>
+    </div>
+
+    <script>
+        // Form validation and interaction logic
+        const form = document.getElementById('signupForm');
+        const inputs = form.querySelectorAll('.form-input');
+        
+        // Password toggle functionality
+        const passwordToggle = document.getElementById('passwordToggle');
+        const passwordInput = document.getElementById('password');
+        
+        passwordToggle.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            passwordToggle.textContent = type === 'password' ? '🌞' : '🌚';
+        });
+
+        // Password strength indicator
+        const strengthFill = document.getElementById('strengthFill');
+        
+        passwordInput.addEventListener('input', (e) => {
+            const password = e.target.value;
+            let strength = 0;
+            
+            if (password.length >= 8) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            
+            strengthFill.className = 'strength-fill';
+            
+            switch (strength) {
+                case 1:
+                    strengthFill.classList.add('strength-weak');
+                    break;
+                case 2:
+                    strengthFill.classList.add('strength-fair');
+                    break;
+                case 3:
+                    strengthFill.classList.add('strength-good');
+                    break;
+                case 4:
+                    strengthFill.classList.add('strength-strong');
+                    break;
+            }
+        });
+
+        // Real-time validation
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', clearValidation);
+        });
+
+        function validateField(e) {
+            const field = e.target;
+            const fieldName = field.name;
+            const value = field.value.trim();
+            
+            clearValidation(e);
+            
+            let isValid = true;
+            let errorMessage = '';
+            
+            switch (fieldName) {
+                case 'role':
+                    if (!value) {
+                        isValid = false;
+                        errorMessage = 'Please select a role';
+                    }
+                    break;
+                    
+                case 'fullName':
+                    if (!value) {
+                        isValid = false;
+                        errorMessage = 'Please enter your full name';
+                    } else if (value.length < 2) {
+                        isValid = false;
+                        errorMessage = 'Name must be at least 2 characters';
+                    }
+                    break;
+                    
+                case 'email':
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!value) {
+                        isValid = false;
+                        errorMessage = 'Please enter your email address';
+                    } else if (!emailRegex.test(value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid email address';
+                    }
+                    break;
+                    
+                case 'password':
+                    if (!value) {
+                        isValid = false;
+                        errorMessage = 'Please enter a password';
+                    } else if (value.length < 8) {
+                        isValid = false;
+                        errorMessage = 'Password must be at least 8 characters long';
+                    }
+                    break;
+            }
+            
+            if (isValid) {
+                showSuccess(field);
+            } else {
+                showError(field, errorMessage);
+            }
+            
+            return isValid;
+        }
+
+        function clearValidation(e) {
+            const field = e.target;
+            field.classList.remove('error', 'success');
+            
+            const errorElement = document.getElementById(field.name + 'Error');
+            const successElement = document.getElementById(field.name + 'Success');
+            
+            if (errorElement) errorElement.classList.remove('show');
+            if (successElement) successElement.classList.remove('show');
+        }
+
+        function showError(field, message) {
+            field.classList.add('error');
+            const errorElement = document.getElementById(field.name + 'Error');
+            if (errorElement) {
+                errorElement.textContent = errorElement.querySelector('svg').outerHTML + message;
+                errorElement.innerHTML = errorElement.innerHTML.replace(/^.*?<svg/, '<svg');
+                errorElement.innerHTML += message;
+                errorElement.classList.add('show');
+            }
+        }
+
+        function showSuccess(field) {
+            field.classList.add('success');
+            const successElement = document.getElementById(field.name + 'Success');
+            if (successElement) {
+                successElement.classList.add('show');
+            }
+        }
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            let isFormValid = true;
+            inputs.forEach(input => {
+                if (!validateField({ target: input })) {
+                    isFormValid = false;
+                }
+            });
+            
+            if (isFormValid) {
+                // Simulate form submission
+                const submitButton = document.getElementById('submitButton');
+                const buttonText = document.getElementById('buttonText');
+                const buttonLoading = document.getElementById('buttonLoading');
+                
+                submitButton.disabled = true;
+                buttonText.style.display = 'none';
+                buttonLoading.style.display = 'inline-block';
+                
+                setTimeout(() => {
+                    alert('Account created successfully!');
+                    submitButton.disabled = false;
+                    buttonText.style.display = 'inline';
+                    buttonLoading.style.display = 'none';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="login.css">
+    </head>
+        <body>
+            <div class="login-frame">
+        <div class="form-header">
+            <h1 class="form-title">Welcome Back</h1>
+            <p class="form-subtitle">Access your records, track your progress, and stay informed — sign in to continue.</p>
+        </div>
+
+        <form class="login-form" id="loginForm">
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email" class="form-label">
+                    Email <span class="required">*</span>
+                </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-input"
+                    placeholder="Enter your email address"
+                    required
+                    autocomplete="email"
+                >
+                <div class="error-message" id="emailError">
+                    <svg class="error-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    Please enter a valid email address
+                </div>
+                <div class="success-message" id="emailSuccess">
+                    <svg class="success-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Valid email format
+                </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password" class="form-label">
+                    Password <span class="required">*</span>
+                </label>
+                <div class="password-container">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-input"
+                        placeholder="Enter your password"
+                        required
+                        autocomplete="current-password"
+                    >
+                    <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
+                        👁️
+                    </button>
+                </div>
+                
+                <!-- Password Requirements (shown on focus) -->
+                <div class="password-requirements" id="passwordRequirements">
+                    <div class="requirements-title">Password Requirements:</div>
+                    <div class="requirement-item" id="lengthReq">
+                        <div class="requirement-icon">✓</div>
+                        At least 8 characters long
+                    </div>
+                    <div class="requirement-item" id="uppercaseReq">
+                        <div class="requirement-icon">✓</div>
+                        Contains uppercase letter
+                    </div>
+                    <div class="requirement-item" id="numberReq">
+                        <div class="requirement-icon">✓</div>
+                        Contains at least one number
+                    </div>
+                    <div class="requirement-item" id="specialReq">
+                        <div class="requirement-icon">✓</div>
+                        Contains special character
+                    </div>
+                </div>
+
+                <div class="error-message" id="passwordError">
+                    <svg class="error-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    Please enter your password
+                </div>
+                <div class="success-message" id="passwordSuccess">
+                    <svg class="success-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Password looks good!
+                </div>
+            </div>
+
+            <!-- Form Options -->
+            <div class="form-options">
+                <label class="remember-me">
+                    <div class="checkbox" id="rememberCheckbox"></div>
+                    Remember me
+                </label>
+                <a href="#forgot-password" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button" id="submitButton">
+                <span id="buttonText">Sign In</span>
+                <span id="buttonLoading" class="loading" style="display: none;"></span>
+            </button>
+        </form>
+
+        <!-- Social Login Options -->
+        
+
+        <!-- Sign Up Link -->
+        <div class="signup-link">
+            Don't have an account? <a href="../Sign_Up/signup.html">Sign up here</a>
+        </div>
+    </div>
+
+    <script>
+        // Form elements
+        const form = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const passwordToggle = document.getElementById('passwordToggle');
+        const passwordRequirements = document.getElementById('passwordRequirements');
+        const rememberCheckbox = document.getElementById('rememberCheckbox');
+        const submitButton = document.getElementById('submitButton');
+
+        // Password visibility toggle
+        passwordToggle.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            passwordToggle.textContent = type === 'password' ? '🌞' : '🌚';
+        });
+
+        // Password requirements display
+        passwordInput.addEventListener('focus', () => {
+            passwordRequirements.classList.add('show');
+            updatePasswordRequirements();
+        });
+
+        passwordInput.addEventListener('blur', () => {
+            setTimeout(() => {
+                passwordRequirements.classList.remove('show');
+            }, 200);
+        });
+
+        passwordInput.addEventListener('input', updatePasswordRequirements);
+
+        function updatePasswordRequirements() {
+            const password = passwordInput.value;
+            const requirements = {
+                lengthReq: password.length >= 8,
+                uppercaseReq: /[A-Z]/.test(password),
+                numberReq: /[0-9]/.test(password),
+                specialReq: /[^A-Za-z0-9]/.test(password)
+            };
+
+            Object.keys(requirements).forEach(reqId => {
+                const element = document.getElementById(reqId);
+                if (requirements[reqId]) {
+                    element.classList.add('met');
+                } else {
+                    element.classList.remove('met');
+                }
+            });
+        }
+
+        // Remember me checkbox
+        rememberCheckbox.addEventListener('click', () => {
+            rememberCheckbox.classList.toggle('checked');
+        });
+
+        // Form validation
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function showError(field, message) {
+            field.classList.add('error');
+            field.classList.remove('success');
+            const errorElement = document.getElementById(field.name + 'Error');
+            if (errorElement) {
+                errorElement.innerHTML = `
+                    <svg class="error-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    ${message}
+                `;
+                errorElement.classList.add('show');
+            }
+        }
+
+        function showSuccess(field) {
+            field.classList.add('success');
+            field.classList.remove('error');
+            const errorElement = document.getElementById(field.name + 'Error');
+            const successElement = document.getElementById(field.name + 'Success');
+            
+            if (errorElement) errorElement.classList.remove('show');
+            if (successElement) successElement.classList.add('show');
+        }
+
+        function clearValidation(field) {
+            field.classList.remove('error', 'success');
+            const errorElement = document.getElementById(field.name + 'Error');
+            const successElement = document.getElementById(field.name + 'Success');
+            
+            if (errorElement) errorElement.classList.remove('show');
+            if (successElement) successElement.classList.remove('show');
+        }
+
+        // Real-time validation
+        emailInput.addEventListener('input', () => clearValidation(emailInput));
+        passwordInput.addEventListener('input', () => clearValidation(passwordInput));
+
+        emailInput.addEventListener('blur', () => {
+            const email = emailInput.value.trim();
+            if (!email) {
+                showError(emailInput, 'Please enter your email address');
+            } else if (!validateEmail(email)) {
+                showError(emailInput, 'Please enter a valid email address');
+            } else {
+                showSuccess(emailInput);
+            }
+        });
+
+        passwordInput.addEventListener('blur', () => {
+            const password = passwordInput.value;
+            if (!password) {
+                showError(passwordInput, 'Please enter your password');
+            } else if (password.length < 8) {
+                showError(passwordInput, 'Password must be at least 8 characters long');
+            } else {
+                showSuccess(passwordInput);
+            }
+        });
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            let isValid = true;
+
+            // Validate email
+            if (!email) {
+                showError(emailInput, 'Please enter your email address');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                showError(emailInput, 'Please enter a valid email address');
+                isValid = false;
+            } else {
+                showSuccess(emailInput);
+            }
+
+            // Validate password
+            if (!password) {
+                showError(passwordInput, 'Please enter your password');
+                isValid = false;
+            } else if (password.length < 8) {
+                showError(passwordInput, 'Password must be at least 8 characters long');
+                isValid = false;
+            } else {
+                showSuccess(passwordInput);
+            }
+
+            if (isValid) {
+                // Simulate login process
+                const buttonText = document.getElementById('buttonText');
+                const buttonLoading = document.getElementById('buttonLoading');
+                
+                submitButton.disabled = true;
+                buttonText.style.display = 'none';
+                buttonLoading.style.display = 'inline-block';
+                
+                setTimeout(() => {
+                    alert('Login successful!');
+                    submitButton.disabled = false;
+                    buttonText.style.display = 'inline';
+                    buttonLoading.style.display = 'none';
+                }, 2000);
+            }
+        });
+
+        // Social login buttons
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const provider = btn.textContent.trim();
+                alert(`Login with ${provider} clicked!`);
+           });
+        });
+
+              </script>
+</body>
+</html>
+      
