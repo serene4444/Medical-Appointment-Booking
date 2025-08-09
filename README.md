@@ -19,7 +19,7 @@ This is a **fully responsive site** using HTML, CSS, and JavaScript, and can be 
 
 ## 🌐 Live Preview
 
-> *Coming soon — deployed version link*
+> *Coming soon — [deployed version link*](https://serene4444.github.io/Medical-Appointment-Booking/)
 
 ---
 
