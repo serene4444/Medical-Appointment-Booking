@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "mongodb": "^6.18.0",
     "react-router-dom": "^7.7.1",
     "reactjs-popup": "^2.0.6"
   }
