@@ -1,7 +1,7 @@
 import React from 'react';
 import './LandingPage.css';
 
-const Landing_Page = () => {
+const LandingPage = () => {
   return (
     <section className="hero-section">
       <div>
@@ -30,4 +30,4 @@ const Landing_Page = () => {
   );
 };
 
-export default Landing_Page;
+export default LandingPage;
