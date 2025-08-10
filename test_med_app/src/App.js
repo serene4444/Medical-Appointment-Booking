@@ -6,7 +6,7 @@ import LandingPage from './Components/Landing_Page/Landing_Page';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/Medical-Appointment-Booking">
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
