@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -7,9 +8,9 @@ const LandingPage = () => {
       <div>
         <div data-aos="fade-up" className="flex-hero">
           <h1 style={{color: 'white', fontSize: '48px', textAlign: 'center', marginBottom: '20px'}}>
-            Your Health<br/>
+            Your Health Certificates,<br/>
             <span className="text-gradient">
-              Our Responsibility
+              Made Simple
             </span>
           </h1>
           <div className="blob-cont">
@@ -19,11 +20,11 @@ const LandingPage = () => {
             <div className="blue1 blob"></div>
           </div>
           <h4 style={{color: 'white', textAlign: 'center', fontSize: '18px', marginBottom: '30px'}}>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque at quae ducimus. Suscipit omnis quibusdam non cum rem voluptatem!
+            Get official, secure, and fast health certifications—right when you need them. Whether for work, travel, or personal records, we make the process straightforward and reliable.
           </h4>
-          <a href="#services">
+          <Link to="/Components/NavBar/Navbar.html">
             <button className="button" style={{backgroundColor: '#2190FF', color: 'white', padding: '15px 30px', border: 'none', borderRadius: '25px', cursor: 'pointer'}}>Get Started</button>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

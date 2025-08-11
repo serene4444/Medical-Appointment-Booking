@@ -1,7 +1,7 @@
 // Following code has been commented with appropriate comments for your reference.
 import React, { useState } from 'react';
 import './signup.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 
 // Function component for Sign Up form
@@ -66,13 +66,36 @@ const SignUp = () => {
                             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" className="form-control" placeholder="Enter your email" aria-describedby="helpId" />
                             {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
                         </div>
-                        {/* Apply similar logic for other form elements like name, phone, and password to capture user information */}
+                        <div className="form-group">
+                            <label htmlFor="name">name</label>
+                            <input value={name} onChange={(e) => setName(e.target.value)}
+                                type="text" name="name" id="name" className="form-control"
+                                placeholder="Enter your name" />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="phone">Phone</label>
+                            <input value={phone} onChange={(e) => setPhone(e.target.value)}
+                                type="tel" name="phone" id="phone" className="form-control"
+                                placeholder="Enter your phone number" />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="password">Password</label>
+                            <input value={password} onChange={(e) => setPassword(e.target.value)}
+                                type="password" name="password" id="password" className="form-control"
+                                placeholder="Enter your password" />
+                        </div>
+
+                        <div className="btn-group">
+                            <button type="submit" className="btn btn-primary mb-2 mr-1 waves-effect waves-light">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
+            {/* Note: Sign up role is not stored in the database. Additional logic can be implemented for this based on your React code. */}
         </div>
-        {/* Note: Sign up role is not stored in the database. Additional logic can be implemented for this based on your React code. */}
     );
-}
+};
 
-export default Sign_Up; // Export the Sign_Up component for use in other components
+export default SignUp; // Export the SignUp component for use in other components
