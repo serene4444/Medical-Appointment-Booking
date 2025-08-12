@@ -57,43 +57,83 @@ const SignUp = () => {
 
     // JSX to render the Sign Up form
     return (
-        <div className="container" style={{marginTop:'5%'}}>
-            <div className="signup-grid">
+        <div className="signup-page-container">
+            <div className="signup-frame">
+                <div className="form-header">
+                    <h2 className="form-title">Create Your Account</h2>
+                    <p className="form-subtitle">Join us and start your health journey today</p>
+                </div>
+                
                 <div className="signup-form">
                     <form method="POST" onSubmit={register}>
+                        {showerr && <div className="err" style={{ color: '#e53e3e', marginBottom: '16px', textAlign: 'center' }}>{showerr}</div>}
+                        
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" className="form-control" placeholder="Enter your email" aria-describedby="helpId" />
-                            {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="name">name</label>
-                            <input value={name} onChange={(e) => setName(e.target.value)}
-                                type="text" name="name" id="name" className="form-control"
-                                placeholder="Enter your name" />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="phone">Phone</label>
-                            <input value={phone} onChange={(e) => setPhone(e.target.value)}
-                                type="tel" name="phone" id="phone" className="form-control"
-                                placeholder="Enter your phone number" />
+                            <label htmlFor="name" className="form-label">Full Name <span className="required">*</span></label>
+                            <input 
+                                value={name} 
+                                onChange={(e) => setName(e.target.value)}
+                                type="text" 
+                                name="name" 
+                                id="name" 
+                                className="form-input"
+                                placeholder="Enter your full name" 
+                                required
+                            />
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
-                            <input value={password} onChange={(e) => setPassword(e.target.value)}
-                                type="password" name="password" id="password" className="form-control"
-                                placeholder="Enter your password" />
+                            <label htmlFor="email" className="form-label">Email Address <span className="required">*</span></label>
+                            <input 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)} 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                className="form-input" 
+                                placeholder="Enter your email address" 
+                                required
+                            />
                         </div>
 
-                        <div className="btn-group">
-                            <button type="submit" className="btn btn-primary mb-2 mr-1 waves-effect waves-light">Submit</button>
+                        <div className="form-group">
+                            <label htmlFor="phone" className="form-label">Phone Number <span className="required">*</span></label>
+                            <input 
+                                value={phone} 
+                                onChange={(e) => setPhone(e.target.value)}
+                                type="tel" 
+                                name="phone" 
+                                id="phone" 
+                                className="form-input"
+                                placeholder="Enter your phone number" 
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="password" className="form-label">Password <span className="required">*</span></label>
+                            <div className="password-container">
+                                <input 
+                                    value={password} 
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    type="password" 
+                                    name="password" 
+                                    id="password" 
+                                    className="form-input"
+                                    placeholder="Create a strong password" 
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <button type="submit" className="submit-button">
+                                Create Account
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
-            {/* Note: Sign up role is not stored in the database. Additional logic can be implemented for this based on your React code. */}
         </div>
     );
 };

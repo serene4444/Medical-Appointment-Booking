@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Navbar() {
+function Navbar({ showHeroContent = false }) {
     const navLinksRef = useRef(null);
     const navigate = useNavigate();
 
@@ -72,11 +72,15 @@ function Navbar() {
                 <button className="mobile-toggle" onClick={handleMobileToggle}>☰</button>
             </nav>
 
-            <div className="demo-content">
-                <h1>Your Health. Your Story.</h1>
-                <p>A secure and intuitive platform to log symptoms, track treatments, and document your health journey.</p>
-                <Link to="/signup" className="btn btn-primary">Get Started</Link>
-            </div>
+            {showHeroContent && (
+                    <div className="demo-content">
+                      <h1>Your Health. Your Story.</h1>
+                      <p>A secure and intuitive platform to log symptoms, track treatments, and document your health journey. Designed for individuals, caregivers, and professionals who value clarity, consistency, and control in personal health care.</p>
+                      <Link to="/signup" className="btn btn-get-started">
+                        Get Started
+                    </Link>
+                </div>
+            )}
         </>
     );
 }

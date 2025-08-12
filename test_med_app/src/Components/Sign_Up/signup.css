@@ -1,27 +1,30 @@
-   * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Scoped styles for signup page */
+.signup-page-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+.signup-page-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Main Sign Up Frame */
-        .signup-frame {
+/* Main Sign Up Frame */
+.signup-frame {
             background: white;
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            padding: 40px;
+            padding: 48px;
             width: 100%;
-            max-width: 480px;
+            max-width: 520px;
             position: relative;
             overflow: hidden;
         }
@@ -39,14 +42,14 @@
         /* Header Section */
         .form-header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
 
         .form-title {
             font-size: 28px;
             font-weight: 700;
             color: #2d3748;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .form-subtitle {
@@ -59,14 +62,14 @@
         .signup-form {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 32px;
         }
 
         /* Form Groups */
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 15px;
             position: relative;
         }
 
@@ -94,6 +97,7 @@
             background: #fff;
             transition: all 0.3s ease;
             outline: none;
+            margin-bottom: 20px;
         }
 
         .form-input:focus {
@@ -210,7 +214,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 8px;
+            margin-top: 16px;
             position: relative;
             overflow: hidden;
         }
