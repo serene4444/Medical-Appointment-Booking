@@ -44,9 +44,9 @@ function Navbar({ showHeroContent = false }) {
 
                 <ul className="nav-links" ref={navLinksRef}>
                     <li className="nav-item">
-                        <a href="#appointments" className="nav-link active" onClick={handleNavLinkClick}>
+                        <Link to="/instant-consultation" className="nav-link">
                             Appointments
-                        </a>
+                        </Link>
                     </li>
                     <li className="nav-item">
                         <a href="#reviews" className="nav-link" onClick={handleNavLinkClick}>

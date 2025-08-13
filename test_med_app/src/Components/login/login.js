@@ -1,7 +1,7 @@
 // Following code has been commented with appropriate comments for your reference.
 import React, { useState, useEffect } from 'react';
 // Apply CSS according to your design theme or the CSS provided in week 2 lab 2
-
+import './login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 
@@ -59,58 +59,60 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="container">
-        <div className="login-grid">
-          <div className="login-text">
-            <h2>Login</h2>
+    <div className="login-page-container">
+      <div className="login-frame">
+        <div className="form-header">
+          <h1 className="form-title">Welcome Back</h1>
+          <p className="form-subtitle">
+            Access your records, track your progress, and stay informed — sign in to continue.
+          </p>
+        </div>
+        
+        <form onSubmit={login} className="login-form">
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              Email Address <span className="required">*</span>
+            </label>
+            <input 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              type="email" 
+              name="email" 
+              id="email" 
+              className="form-input" 
+              placeholder="Enter your email" 
+              required
+            />
           </div>
-          <div className="login-text">
-            Are you a new member? 
-            <span>
-              <Link to="/signup" style={{ color: '#2190FF' }}>
-                Sign Up Here
-              </Link>
-            </span>
+
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
+              Password <span className="required">*</span>
+            </label>
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              name="password"
+              id="password"
+              className="form-input"
+              placeholder="Enter your password"
+              required
+            />
           </div>
-          <br />
-          <div className="login-form">
-            <form onSubmit={login}>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                {/* Input field for email */}
-                <input 
-                  value={email} 
-                  onChange={(e) => setEmail(e.target.value)} 
-                  type="email" 
-                  name="email" 
-                  id="email" 
-                  className="form-control" 
-                  placeholder="Enter your email" 
-                  aria-describedby="helpId" 
-                />
-              </div>
-              {/* Input field for password */}
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    type="password"
-                    name="password"
-                    id="password"
-                    className="form-control"
-                    placeholder="Enter your password"
-                />
-              </div>
-              <div className="btn-group">
-                {/* Login button */}
-                <button type="submit" className="btn btn-primary mb-2 mr-1 waves-effect waves-light">
-                  Login
-                </button>
-              </div>
-            </form>
-          </div>
+
+          <button type="submit" className="submit-button">
+            Sign In
+          </button>
+        </form>
+        
+        <div className="signup-link">
+          <p>
+            Don't have an account? {' '}
+            <Link to="/signup">
+              Sign up here
+            </Link>
+          </p>
         </div>
       </div>
     </div>

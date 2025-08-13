@@ -1,7 +1,7 @@
 // Following code has been commented with appropriate comments for your reference.
 import React, { useState } from 'react';
 import './signup.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { API_URL } from '../../config';
 
 // Function component for Sign Up form
@@ -132,6 +132,15 @@ const SignUp = () => {
                             </button>
                         </div>
                     </form>
+                    
+                    <div className="signup-link">
+                        <p>
+                            Already have an account? {' '}
+                            <Link to="/login">
+                                Sign in here
+                            </Link>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
