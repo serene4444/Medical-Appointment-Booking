@@ -1,7 +1,6 @@
 /* Scoped styles for signup page */
 .signup-page-container {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -22,9 +21,9 @@
             background: white;
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            padding: 48px;
+            padding: 40px;
             width: 100%;
-            max-width: 520px;
+            max-width: 420px;
             position: relative;
             overflow: hidden;
         }
@@ -42,14 +41,14 @@
         /* Header Section */
         .form-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
         .form-title {
             font-size: 28px;
             font-weight: 700;
             color: #2d3748;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .form-subtitle {
@@ -62,14 +61,14 @@
         .signup-form {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 24px;
         }
 
         /* Form Groups */
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 8px;
             position: relative;
         }
 
@@ -97,7 +96,6 @@
             background: #fff;
             transition: all 0.3s ease;
             outline: none;
-            margin-bottom: 20px;
         }
 
         .form-input:focus {
@@ -126,17 +124,36 @@
         }
 
         .dropdown-select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-position: right 12px center;
-            background-repeat: no-repeat;
-            background-size: 16px;
-            padding-right: 40px;
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            background: #fff !important;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e") !important;
+            background-position: right 12px center !important;
+            background-repeat: no-repeat !important;
+            background-size: 10px 6px !important;
+            padding-right: 35px;
             cursor: pointer;
         }
 
         .dropdown-select:focus {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23667eea' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background: #fff !important;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1l4 4 4-4' stroke='%23667eea' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e") !important;
+            background-position: right 12px center !important;
+            background-repeat: no-repeat !important;
+            background-size: 10px 6px !important;
+        }
+
+        .dropdown-select:hover {
+            background: #fff !important;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3e%3cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e") !important;
+            background-position: right 12px center !important;
+            background-repeat: no-repeat !important;
+            background-size: 10px 6px !important;
+        }
+
+        .dropdown-select option:first-child {
+            color: #a0aec0;
         }
 
         /* Password Input with Toggle */

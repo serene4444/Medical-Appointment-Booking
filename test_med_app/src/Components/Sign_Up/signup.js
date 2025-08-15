@@ -7,6 +7,7 @@ import { API_URL } from '../../config';
 // Function component for Sign Up form
 const SignUp = () => {
     // State variables using useState hook
+    const [role, setRole] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -25,6 +26,7 @@ const SignUp = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
+                role: role,
                 name: name,
                 email: email,
                 password: password,
@@ -40,6 +42,7 @@ const SignUp = () => {
             sessionStorage.setItem("name", name);
             sessionStorage.setItem("phone", phone);
             sessionStorage.setItem("email", email);
+            sessionStorage.setItem("role", role);
 
             // Redirect user to home page
             navigate("/");
@@ -80,6 +83,23 @@ const SignUp = () => {
                                 placeholder="Enter your full name" 
                                 required
                             />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="role" className="form-label">Role <span className="required">*</span></label>
+                            <select 
+                                value={role} 
+                                onChange={(e) => setRole(e.target.value)}
+                                name="role" 
+                                id="role" 
+                                className="form-input dropdown-select"
+                                required
+                            >
+                                <option value="">Select your role</option>
+                                <option value="patient">Patient</option>
+                                <option value="doctor">Doctor</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </div>
 
                         <div className="form-group">

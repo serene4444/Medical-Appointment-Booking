@@ -4,7 +4,8 @@ import SignUp from './Components/Sign_Up/signup';
 import Login from './Components/login/login';
 import Navbar from './Components/NavBar/Navbar';
 import Home from './Components/Home/Home';
-import InstantConsultation from './Components/InstantConsultation/InstantConsultation'; 
+import InstantConsultation from './Components/InstantConsultationBooking/InstantConsultation'; 
+import AppointmentFormIC from './Components/InstantConsultationBooking/AppointmentFormIC/AppointmentFormIC'; 
 
 function AppContent() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function AppContent() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/instant-consultation" element={<InstantConsultation />} />
+        <Route path="/appointment" element={<AppointmentFormIC />} />
       </Routes>
     </>
   );
