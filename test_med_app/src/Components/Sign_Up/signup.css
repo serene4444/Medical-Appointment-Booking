@@ -79,6 +79,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            margin-top: 16px;
         }
 
         .required {
@@ -96,6 +97,7 @@
             background: #fff;
             transition: all 0.3s ease;
             outline: none;
+            margin-top: 8px;
         }
 
         .form-input:focus {

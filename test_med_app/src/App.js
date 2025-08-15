@@ -26,9 +26,12 @@ function AppContent() {
 }
 
 function App() {
+  // Only use basename for GitHub Pages deployment (when hostname contains github.io)
+  const basename = window.location.hostname.includes('github.io') ? '/Medical-Appointment-Booking' : '';
+  
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <AppContent />
       </BrowserRouter>
     </div>
