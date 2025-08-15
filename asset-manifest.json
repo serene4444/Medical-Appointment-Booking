@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.a2a51315.css",
-    "main.js": "/static/js/main.0c25821b.js",
-    "static/js/453.efab02db.chunk.js": "/static/js/453.efab02db.chunk.js",
-    "index.html": "/index.html",
-    "main.a2a51315.css.map": "/static/css/main.a2a51315.css.map",
-    "main.0c25821b.js.map": "/static/js/main.0c25821b.js.map",
-    "453.efab02db.chunk.js.map": "/static/js/453.efab02db.chunk.js.map"
+    "main.css": "/Medical-Appointment-Booking/static/css/main.a2a51315.css",
+    "main.js": "/Medical-Appointment-Booking/static/js/main.9901938a.js",
+    "static/js/453.efab02db.chunk.js": "/Medical-Appointment-Booking/static/js/453.efab02db.chunk.js",
+    "index.html": "/Medical-Appointment-Booking/index.html",
+    "main.a2a51315.css.map": "/Medical-Appointment-Booking/static/css/main.a2a51315.css.map",
+    "main.9901938a.js.map": "/Medical-Appointment-Booking/static/js/main.9901938a.js.map",
+    "453.efab02db.chunk.js.map": "/Medical-Appointment-Booking/static/js/453.efab02db.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a2a51315.css",
-    "static/js/main.0c25821b.js"
+    "static/js/main.9901938a.js"
   ]
 }
