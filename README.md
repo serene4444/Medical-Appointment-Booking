@@ -45,3 +45,31 @@ Medication errors and lack of accessible information are ongoing challenges in h
 - **Future AI/NLP**: Natural language processing for chatbox functionality  
 
 ---
+
+## Installation & Setup
+**Prerequisites**
+-Node.js (v16.0 or higher)
+-MongoDB (v5.0 or higher)
+-Git
+
+---
+
+## 🗓️ Project Roadmap
+**Phase 1: Core Platform (Current)**
+
+- ✅ User authentication system
+- ✅ Basic appointment booking
+- ✅ Provider directory
+- 🔄 Patient dashboard enhancement
+
+## Phase 2: Enhanced Features (Q2 2025)
+
+- 📋 Telemedicine integration
+- 📋 Payment processing system
+- 📋 Advanced notification system
+
+## Phase 3: Advanced Integration (Q3 2025)
+
+- 📋 Electronic health records integration
+- 📋 Insurance verification system
+- 📋 Advanced reporting and analytics
