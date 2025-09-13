@@ -14,8 +14,8 @@
 
 .doctor-card-container:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    border-color: #667eea;
+    box-shadow: 0 12px 40px rgba(74, 144, 226, 0.15);
+    border-color: #4A90E2;
 }
 
 .doctor-card-details-container {
@@ -33,7 +33,7 @@
 .doctor-card-profile-image-container svg {
     width: 80px;
     height: 80px;
-    color: #667eea;
+    color: #4A90E2;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     border-radius: 50%;
     padding: 16px;
@@ -42,8 +42,8 @@
 }
 
 .doctor-card-container:hover .doctor-card-profile-image-container svg {
-    color: #764ba2;
-    border-color: #667eea;
+    color: #357ABD;
+    border-color: #4A90E2;
     transform: scale(1.05);
 }
 
@@ -61,7 +61,7 @@
 
 .doctor-card-detail-speciality {
     font-size: 16px;
-    color: #667eea;
+    color: #4A90E2;
     font-weight: 600;
     margin-bottom: 12px;
     text-transform: capitalize;
@@ -97,7 +97,7 @@
 .book-appointment-btn {
     width: 100%;
     padding: 14px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
     color: white;
     border: none;
     border-radius: 12px;
@@ -115,7 +115,7 @@
 
 .book-appointment-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 25px rgba(45, 55, 72, 0.4);
 }
 
 .book-appointment-btn:active {

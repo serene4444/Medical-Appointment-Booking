@@ -7,7 +7,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle, #667eea 0%, #764ba2 100%);
+            background: radial-gradient(circle, #4A90E2 0%, #7BB3F0 50%, #A8D0F0 100%);
             min-height: 100vh;
         }
 
@@ -18,7 +18,7 @@
             left: 0;
             right: 0;
             height: 70px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(245, 247, 250, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: #4a5568;
+            color: #4A90E2;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -42,7 +42,7 @@
         .logo-icon {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #4A90E2, #7BB3F0);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -76,19 +76,20 @@
         }
 
         .nav-link:hover {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
+            background: rgba(74, 144, 226, 0.1);
+            color: #4A90E2;
             transform: translateY(-2px);
         }
 
         .nav-link:focus {
-            outline: 2px solid #667eea;
+            outline: 2px solid #4A90E2;
             outline-offset: 2px;
-            background: rgba(102, 126, 234, 0.1);
+            background: rgba(74, 144, 226, 0.1);
+            box-shadow: none;
         }
 
         .nav-link.active {
-            background: #667eea;
+            background: #4A90E2;
             color: white;
         }
 
@@ -121,28 +122,27 @@
         }
 
         .btn-outline {
-            background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
-            
+            background: linear-gradient(135deg, #4a5568, #2d3748);
+            color: white;
+            border: 2px solid transparent;
         }
 
         .btn-outline:hover {
-            background: #667eea;
+            background: linear-gradient(135deg, #2d3748, #1a202c);
             color: white;
             transform: translateY(-2px);
-            
+            box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #4a5568, #2d3748);
             color: white;
             border: 2px solid transparent;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);
         }
 
         .btn-get-started {
@@ -179,13 +179,14 @@
         }
 
         .mobile-toggle:hover {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
+            background: rgba(74, 144, 226, 0.1);
+            color: #4A90E2;
         }
 
         .mobile-toggle:focus {
-            outline: 2px solid #667eea;
+            outline: 2px solid #4A90E2;
             outline-offset: 2px;
+            box-shadow: none;
         }
 
         .hamburger-icon {
