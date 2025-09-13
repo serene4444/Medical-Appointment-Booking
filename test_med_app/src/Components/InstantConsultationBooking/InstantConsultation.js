@@ -149,7 +149,7 @@ const InstantConsultation = () => {
 
     useEffect(() => {
         getDoctorsDetails();
-    }, [searchParams]);
+    }, [searchParams, getDoctorsDetails]);
 
     const renderStars = (rating) => {
         const stars = [];
@@ -314,7 +314,7 @@ const InstantConsultation = () => {
                                         <div className="time-slots">
                                             <div className="time-slot">10:00 AM</div>
                                             <div className="time-slot">11:30 AM</div>
-                                            <div className="time-slot selected">2:00 PM</div>
+                                            <div className="time-slot">2:00 PM</div>
                                             <div className="time-slot">3:30 PM</div>
                                             <div className="time-slot">4:45 PM</div>
                                         </div>

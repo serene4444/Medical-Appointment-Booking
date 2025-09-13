@@ -13,20 +13,7 @@ function Navbar({ showHeroContent = false }) {
         navLinksRef.current.classList.toggle('active');
     };
 
-    const handleNavLinkClick = (e) => {
-        e.preventDefault();
-        const navLinksElements = navLinksRef.current.querySelectorAll('.nav-link');
-        navLinksElements.forEach(l => l.classList.remove('active'));
-        e.currentTarget.classList.add('active');
-
-        const href = e.currentTarget.getAttribute('href');
-        if (href && href.startsWith('#')) {
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    };
+    // Removed unused handleNavLinkClick function as it's not being used
 
     const handleLogout = () => {
         sessionStorage.clear();
@@ -42,34 +29,79 @@ function Navbar({ showHeroContent = false }) {
                     Health Cert
                 </Link>
 
-                <ul className="nav-links" ref={navLinksRef}>
+                <ul className="nav-links" ref={navLinksRef} role="navigation" aria-label="Main navigation">
                     <li className="nav-item">
-                        <Link to="/instant-consultation" className="nav-link">
+                        <Link 
+                            to="/instant-consultation" 
+                            className="nav-link"
+                            aria-label="Book appointments with doctors"
+                        >
+                            <svg className="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
                             Appointments
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <a href="#reviews" className="nav-link" onClick={handleNavLinkClick}>
+                        <Link to="/" className="nav-link" aria-label="View patient reviews and testimonials">
+                            <svg className="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                            </svg>
                             Reviews
-                        </a>
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/" className="nav-link" aria-label="Learn about our healthcare services">
+                            <svg className="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            About
+                        </Link>
                     </li>
                 </ul>
 
                 <div className="auth-buttons">
                     {isLoggedIn ? (
                         <>
-                            <span className="welcome">Welcome, {name}</span>
-                            <button onClick={handleLogout} className="btn btn-outline">Logout</button>
+                            <span className="welcome" aria-label={`Welcome, ${name}`}>
+                                Welcome, {name}
+                            </span>
+                            <button 
+                                onClick={handleLogout} 
+                                className="btn btn-outline"
+                                aria-label="Logout from your account"
+                            >
+                                Logout
+                            </button>
                         </>
                     ) : (
                         <>
-                            <Link to="/signup" className="btn btn-outline">Sign Up</Link>
-                            <Link to="/login" className="btn btn-primary">Login</Link>
+                            <Link 
+                                to="/signup" 
+                                className="btn btn-outline"
+                                aria-label="Create a new account"
+                            >
+                                Sign Up
+                            </Link>
+                            <Link 
+                                to="/login" 
+                                className="btn btn-primary"
+                                aria-label="Sign in to your account"
+                            >
+                                Login
+                            </Link>
                         </>
                     )}
                 </div>
 
-                <button className="mobile-toggle" onClick={handleMobileToggle}>☰</button>
+                <button 
+                    className="mobile-toggle" 
+                    onClick={handleMobileToggle}
+                    aria-label="Toggle mobile navigation menu"
+                    aria-expanded={navLinksRef.current?.classList.contains('active')}
+                >
+                    <span className="hamburger-icon">☰</span>
+                </button>
             </nav>
 
             {showHeroContent && (

@@ -15,46 +15,99 @@ const SignUp = () => {
     const [showerr, setShowerr] = useState(''); // State to show error messages
     const navigate = useNavigate(); // Navigation hook from react-router
 
+    // Function to validate form data
+    const validateForm = () => {
+        const newErrors = {};
+        
+        if (!name.trim()) {
+            newErrors.name = 'Full name is required';
+        } else if (name.trim().length < 2) {
+            newErrors.name = 'Name must be at least 2 characters';
+        }
+        
+        if (!role) {
+            newErrors.role = 'Please select your role';
+        }
+        
+        if (!email.trim()) {
+            newErrors.email = 'Email is required';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            newErrors.email = 'Please enter a valid email address';
+        }
+        
+        if (!phone.trim()) {
+            newErrors.phone = 'Phone number is required';
+        } else if (!/^[+]?[1-9][\d]{0,15}$/.test(phone.replace(/[\s\-()]/g, ''))) {
+            newErrors.phone = 'Please enter a valid phone number';
+        }
+        
+        if (!password) {
+            newErrors.password = 'Password is required';
+        } else if (password.length < 6) {
+            newErrors.password = 'Password must be at least 6 characters';
+        } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+            newErrors.password = 'Password must contain at least one uppercase letter, one lowercase letter, and one number';
+        }
+        
+        setShowerr(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
     // Function to handle form submission
     const register = async (e) => {
         e.preventDefault(); // Prevent default form submission
 
-        // API Call to register user
-        const response = await fetch(`${API_URL}/api/auth/register`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                role: role,
-                name: name,
-                email: email,
-                password: password,
-                phone: phone,
-            }),
-        });
+        if (!validateForm()) {
+            return;
+        }
 
-        const json = await response.json(); // Parse the response JSON
+        setShowerr(''); // Clear previous errors
 
-        if (json.authtoken) {
-            // Store user data in session storage
-            sessionStorage.setItem("auth-token", json.authtoken);
-            sessionStorage.setItem("name", name);
-            sessionStorage.setItem("phone", phone);
-            sessionStorage.setItem("email", email);
-            sessionStorage.setItem("role", role);
+        try {
+            // API Call to register user
+            const response = await fetch(`${API_URL}/api/auth/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    role: role,
+                    name: name,
+                    email: email,
+                    password: password,
+                    phone: phone,
+                }),
+            });
 
-            // Redirect user to home page
-            navigate("/");
-            window.location.reload(); // Refresh the page
-        } else {
-            if (json.errors) {
-                for (const error of json.errors) {
-                    setShowerr(error.msg); // Show error messages
-                }
+            const json = await response.json(); // Parse the response JSON
+
+            if (json.authtoken) {
+                // Store user data in session storage
+                sessionStorage.setItem("auth-token", json.authtoken);
+                sessionStorage.setItem("name", name);
+                sessionStorage.setItem("phone", phone);
+                sessionStorage.setItem("email", email);
+                sessionStorage.setItem("role", role);
+
+                // Show success message
+                setShowerr('Account created successfully! Redirecting...');
+
+                // Redirect user to home page after a short delay
+                setTimeout(() => {
+                    navigate("/");
+                    window.location.reload(); // Refresh the page
+                }, 1500);
             } else {
-                setShowerr(json.error);
+                if (json.errors) {
+                    const errorMessages = json.errors.map(error => error.msg).join(', ');
+                    setShowerr(errorMessages);
+                } else {
+                    setShowerr(json.error || 'Registration failed. Please try again.');
+                }
             }
+        } catch (error) {
+            console.error('Registration error:', error);
+            setShowerr('Network error. Please check your connection and try again.');
         }
     };
 

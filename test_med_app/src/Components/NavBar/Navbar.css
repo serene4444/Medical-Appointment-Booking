@@ -81,6 +81,12 @@
             transform: translateY(-2px);
         }
 
+        .nav-link:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
         .nav-link.active {
             background: #667eea;
             color: white;
@@ -167,6 +173,24 @@
             font-size: 24px;
             color: #4a5568;
             cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+
+        .mobile-toggle:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        .hamburger-icon {
+            display: block;
+            transition: transform 0.3s ease;
         }
 
         /* Demo Content */
