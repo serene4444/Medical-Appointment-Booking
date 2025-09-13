@@ -10,7 +10,7 @@
 
 /* Doctor Info Summary */
 .doctor-info-summary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4A90E2, #7BB3F0 100%);
     color: white;
     padding: 2rem;
     border-radius: 12px;
@@ -36,7 +36,7 @@
     align-items: center;
     text-align: center;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.626);
     border-radius: 8px;
     backdrop-filter: blur(10px);
 }
@@ -228,7 +228,7 @@ select.form-input {
 }
 
 .submit-button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4A90E2, #7BB3F0 100%);
     color: white;
     border: none;
     padding: 1rem 3rem;

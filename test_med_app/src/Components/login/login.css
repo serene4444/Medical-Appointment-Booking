@@ -6,7 +6,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4A90E2, #7BB3F0 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -34,7 +34,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #4A90E2, #7BB3F0 100%);
         }
 
         @keyframes slideUp {
@@ -312,7 +312,7 @@
         .submit-button {
             width: 100%;
             padding: 16px 24px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #4A90E2, #7BB3F0 100%);
             color: white;
             border: none;
             border-radius: 8px;
